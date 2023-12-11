@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="hero_area">
+    <!-- header section strats -->
+    <div class="hero_bg_box">
+      <div class="img-box">
+        <img src="static/images/sl_121021_47240_16.jpg" style="height: 100%;width: 50%;"  alt="">
+      </div>
+    </div>
+
+    <header class="header_section">
+      <div class="header_bottom">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg custom_nav-container">
+            <a class="navbar-brand" href="">
+              <span>
+                Banking System
+              </span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class=""></span>
+            </button>
+
+            <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
+              <ul class="navbar-nav  ">
+                <li class="nav-item active">
+                  <a class="nav-link" href="http://127.0.0.1:8000">Home <span
+                          class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item ">
+                  <a class="nav-link" href="trans"> Transaction</a>
+              </li>
+              <li class="nav-item ">
+                  <a class="nav-link" href="transh">Transaction History</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="out"> Log Out</a>
+                </li>             
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <div class="text-center" style="color: white;">
+      <h2>Your Balance</h2><hr>
+      <p><b>Name:</b> {{ account.user_id.username }}</p>
+      <p><b>Account Number:</b> {{ account.account_number }}</p>
+      <p><b>Balance:</b> {{ account.balance }}</p>
+  </div>
+  
+{% endblock content %}    

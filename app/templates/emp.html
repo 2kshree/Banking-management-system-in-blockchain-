@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="hero_area">
+    <!-- header section strats -->
+    <div class="hero_bg_box">
+      <div class="img-box">
+        <img src="static/images/sl_121021_47240_16.jpg" style="height: 100%;width: 50%;"  alt="">
+      </div>
+    </div>
+
+    <header class="header_section">
+      <div class="header_bottom">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg custom_nav-container">
+            <a class="navbar-brand" href="">
+              <span>
+                Banking System
+              </span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class=""></span>
+            </button>
+
+            <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
+              <ul class="navbar-nav  ">
+                <li class="nav-item">
+                    <a class="nav-link" href="/out"> Log Out</a>
+                  </li>              
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <style>
+        .fa-close:hover{
+            font-size: 18px;
+        }
+    
+        .fa-check:hover{
+            font-size: 18px;
+            
+        }
+    </style>
+    
+    <div class="container mt-md-5">
+        {% if data %}
+        <table id="example" class="table table-dark table-striped bg-dark" style="width:100%">
+            <thead>
+                <tr>
+                    <th class="text-center">User ID</th>
+                    <th class="text-center">User Name</th>
+                    <th class="text-center">Process</th>
+                    <th class="text-center">Your Decision</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in data %}
+                <tr>
+                    <td class="text-center" style="padding-top: 2%;">{{i.user.id}}</td>
+                    <td class="text-center" style="padding-top: 2%;">{{i.user_id}}</td>
+                    <td class="text-center">
+                        Account Creation
+                    </td>
+                    <td class="text-center" style="padding-top: 2%;">
+                        <div class="">
+                            <a href="status/True?id={{i.id}}" style="margin: 5%;">
+                                <i class="fa fa-check" style="color:rgb(0, 255, 0);"></i>
+                            </a>
+                            <a href="status/False/?id={{i.id}}" style="margin: 5%;">
+                                <i class="fa fa-close" style="color:rgb(255, 0, 0);"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <table id="example" class="table table-dark table-striped bg-dark mb-5" style="width:100%">
+            <thead>
+                <tr>
+                    <th class="text-center">User ID</th>
+                    <th class="text-center">User Name</th>
+                    <th class="text-center">Container</th>
+                    <th class="text-center">Your Decision</th>
+                </tr>
+            </thead>
+        </table>
+        <p class="text-center lead"><b> There Are No Notifications Received. </b></p>
+        {% endif %}
+    </div>
+    
+    <!-- <button class="btn btn-primary">success</button> -->
+    
+    
+    <script>
+        new DataTable('#example');
+    </script>
+    
+
+{% endblock content %}    
